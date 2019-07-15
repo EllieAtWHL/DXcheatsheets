@@ -71,8 +71,7 @@ Undo the last commit
     git reset --soft HEAD~1
 
 Compare two repos
-
-git remote add -f b path/to/repo_b.git
-git remote update
-git diff master remotes/b/master
-git remote rm b
+    git remote add -f b path/to/repo_b.git
+    git remote update
+    git diff master remotes/b/master
+    git remote rm b
