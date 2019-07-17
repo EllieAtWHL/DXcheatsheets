@@ -29,3 +29,7 @@ Retrieve metadata from untracked Org
         sfdx force:source:retrieve -m ApexClass
     A specific apex class
         sfdx force:source:retrieve -m ApexClass:MyApexClass
+
+Deploy metadata to untracked org
+    sfdx force:source:deploy -l RunSpecifiedTests -r AccountTriggerHandler
+
