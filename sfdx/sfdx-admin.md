@@ -1,8 +1,8 @@
 Assign permissions set to user
-    sfdx force:user:permset:assign -n <permissionssetname>
+    `sfdx force:user:permset:assign -n <permissionssetname>`
 
 Run a query
-    sfdx force:data:soql:query -q "SOQL query" (--json)
+    `sfdx force:data:soql:query -q "SOQL query" (--json)`
 
 Open an org
-    sfdx force:org:open -u <DevHub>
+    `sfdx force:org:open -u <DevHub>`
