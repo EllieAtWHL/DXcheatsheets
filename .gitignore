@@ -1,2 +1,4 @@
 .sfdx/tools/apex.db
 data/premium.csv
+data/leadSourceConfig.csv
+data/occupation.csv
