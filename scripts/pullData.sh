@@ -7,7 +7,7 @@ do
 done
 
 echo 'Retrieving Premiums'
-RES= "sfdx force:data:soql:query -u ${ALIAS} -q 'SELECT Age__c, M_12_Level__c, M_12_Step__c, M_24_Level__c, M_24_Step__c, S_12_Level__c, S_12_Step__c, S_24_Level__c, S_24_Step__c FROM Premium__c' -r csv > data/premium.csv"
+RES= "sfdx force:data:soql:query -u ${ALIAS} "-q 'SELECT Age__c, M_12_Level__c, M_12_Step__c, M_24_Level__c, M_24_Step__c, S_12_Level__c, S_12_Step__c, S_24_Level__c, S_24_Step__c FROM Premium__c' -r csv > data/premium.csv
 echo $RES
 if [ "$?" = "1" ]
 then
@@ -17,6 +17,7 @@ fi
 
 echo 'Retrieving Occupations'
 sfdx force:data:soql:query -u ${ALIAS} -q "SELECT Name, Code__c FROM Occupation__c" -r csv > data/occupation.csv
+# sfdx force:data:soql:query -u prod -q "SELECT Name, Code__c FROM Occupation__c" -r csv > data/occupation.csv
 if [ "$?" = "1" ]
 then
   echo "Error retrieving Occupation data"
