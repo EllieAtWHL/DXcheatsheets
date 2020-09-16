@@ -1,0 +1,15 @@
+public with sharing class BoatSearchResults {
+    @AuraEnabled
+    public static List<Boat__c> getBoats(String boatTypeId){
+        String query = 'SELECT Id, Name, Contact__r.Name, Picture__c FROM Boat__c';
+        
+        if(boatTypeId != ''){
+            query += ' WHERE BoatType__c = :boatTypeId';
+        }
+
+        List<Boat__c> boats = Database.query(query);
+
+        return boats;
+    }
+
+}

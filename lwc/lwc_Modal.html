@@ -1,0 +1,43 @@
+<template if:true={showCheckout}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <lightning-layout vertical-align="end">
+                        <lightning-layout-item padding="around-small">
+                            <lightning-icon icon-name="custom:custom93"></lightning-icon>
+                        </lightning-layout-item>
+                        <lightning-layout-item padding="around-small">
+                            <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Checkout</h2>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </header>
+                <div class="slds-modal__content slds-p-around--small">
+                    <c-quote-basket quotes-to-sell={quoteToSell}
+                                    account-id={accountId}
+                                    record-id={recordId}
+                                    object-api-name={objectApiName}
+                                    onaddtobasket={handleEvent}
+                                    onremovefrombasket={handleEvent}
+                                    onproceed={proceed}>
+                    </c-quote-basket>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning-layout horizontal-align="spread">
+                        <lightning-button
+                            label="Back"
+                            icon-name="utility:back"
+                            disabled={noQuotesOrMulti}
+                            onclick={closeModal}>
+                        </lightning-button>
+                        <lightning-button
+                            label="Proceed with Sale"
+                            icon-name="utility:forward"
+                            disabled={noQuotesOrMulti}
+                            onclick={saleProceed}>
+                        </lightning-button>
+                    </lightning-layout>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>

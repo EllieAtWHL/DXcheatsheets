@@ -1,0 +1,15 @@
+    <lightning-accordion allow-multiple-sections-open open-section-name={quoteLineIds}>
+        <template for:each={quoteLines} for:item="quoteLine">
+            <div key={quoteLine.Id}>
+                <lightning-accordion-section name={quoteLine.Id} label={quoteLine.Summary__c}>
+                    <c-quote-line-form
+                            quoteline={quoteLine}
+                            mode={mode}
+                            onaddtobasket={handleEvent}
+                            onremovefrombasket={handleEvent}
+                            onupdatedquote={handleEvent}
+                    ></c-quote-line-form>
+                </lightning-accordion-section>
+            </div>
+        </template>
+    </lightning-accordion>
