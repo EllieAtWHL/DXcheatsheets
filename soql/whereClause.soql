@@ -1,0 +1,7 @@
+SELECT Id, Name, Source_Method__c, LastModifiedDate, LastModifiedBy.Name 
+FROM Account 
+WHERE Source_Method__c = NULL AND Id IN 
+    (SELECT ParentId 
+    FROM FeedItem 
+    WHERE CreatedById != '0050Y000000OGt0QAG' AND CreatedById != '0051n000004yovEAAQ' 
+            AND CreatedDate > 2020-09-29T16:24:33Z AND Type = 'TrackedChange')

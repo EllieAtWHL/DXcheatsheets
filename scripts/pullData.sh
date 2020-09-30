@@ -42,3 +42,5 @@ fi
 
 ### this retrieves the lead source config, but we cannot load them at the moment due to SOQL queries in triggers
 ### sfdx force:data:soql:query -u prod -q "SELECT Active_Date__c, End_Date__c, CXP_DDI__c, TFN__c,  Source_Product__c, Lead_Source__c,Dialer_List__c,   Sub_Source__c,Coupon_Code__c, Sales_Incentive__c, NN_DDI__C, NN_Group_Master__c FROM Lead_Source_Config__c WHERE Active__c = true" -r csv > data/leadSourceConfig.csv
+
+### sfdx force:data:soql:query -u prod -q "SELECT Age__c, M_12_Level__c, M_12_Step__c, M_24_Level__c, M_24_Step__c, S_12_Level__c, S_12_Step__c, S_24_Level__c, S_24_Step__c FROM Premium__c" -r csv > data/premium.csv
