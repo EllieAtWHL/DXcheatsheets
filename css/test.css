@@ -1,0 +1,73 @@
+.apexp .bPageBlock.apexDefaultPageBlock .pbBottomButtons .pbButtonb {
+    padding: 0px;
+}
+
+.apexp .bPageBlock .pbBottomButtons{
+    margin: 0px;
+}
+
+body .secondaryPalette.bPageBlock{
+    background: #e5eaec;
+}
+
+body .bPageBlock .pbBody{
+    background: #ffffff;
+    padding: 5px;        
+    border-radius: 5px;
+}
+
+body .bPageBlock .pbTitle, .bPageBlock .pbTitle {
+    width: 0px;
+}
+
+.FlowPageBlockBtns .FlowNextBtn{     	
+    float: right;
+    margin: 0px;
+    font-size: 1em;
+    font-weight: normal;
+    text-transform: uppercase;
+    width: 50%;
+    height: 5em;
+    padding: 5px;
+    background: #31b99c;
+    border: 0px;
+    border-style: none;
+    border-radius: 0px;
+    color: #ffffff;
+}
+
+.FlowPageBlockBtns .FlowPreviousBtn{
+    float: left;
+    margin: 0px;
+    font-size: 1em;
+    font-weight: normal;
+    text-transform: uppercase;
+    width: 50%;
+    height: 5em;
+    padding: 5px;
+    background: #3f9fee;
+    border: 0px;
+    border-style: none;
+    border-radius: 0px;
+    color: #ffffff;
+}
+
+select, input, textarea {
+    font-size: 1.25em;
+}
+
+select, input {
+    height: 2em;
+}
+
+textarea {
+    height: 5em;
+}
+
+select {
+     width: 30em;
+}
+
+input, textarea {
+    width: 70em;
+}        
