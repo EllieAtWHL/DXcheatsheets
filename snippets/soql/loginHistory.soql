@@ -1,0 +1,3 @@
+SELECT UserId, Status, SourceIp, LoginType, LoginTime, CountryIso, ClientVersion, Browser, Application 
+FROM LoginHistory 
+WHERE LoginTime = LAST_N_DAYS:30

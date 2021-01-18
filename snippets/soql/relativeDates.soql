@@ -1,0 +1,5 @@
+SELECT 
+    Id, 
+    CreatedDate 
+FROM i42as__ioProvisioningOrderItem__c 
+WHERE CreatedDate != LAST_N_DAYS:30

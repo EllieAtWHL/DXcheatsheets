@@ -1,0 +1,16 @@
+/* Get flows Id: */
+    SELECT 
+        Id, 
+        FullName, 
+        Description 
+    FROM Flow
+/* Get results for specific flows: */
+    SELECT 
+        Id, 
+        ApexTestClassId, 
+        TestMethodName, 
+        FlowVersionId, 
+        NumElementsCovered, 
+        NumElementsNotCovered 
+    FROM FlowTestCoverage 
+    WHERE FlowVersionId in('301S00000006z0yIAA', '301S00000006z0zIAA')
