@@ -1,0 +1,24 @@
+SELECT 
+    Id, 
+    Prospect__r.CreatedDate, 
+    Prospect__r.Type, 
+    Prospect__r.PersonContactId, 
+    Prospect__r.PersonEmail, 
+    Prospect__r.Source_Product__c, 
+    Prospect__r.Name, 
+    Prospect__r.PersonLeadSource, 
+    Prospect__r.Sub_Source__c, 
+    Prospect__r.Sub_Source_2__c, 
+    Prospect__r.Email_Campaign__pc 
+FROM Consent_Activity__c 
+WHERE 
+    CreatedDate >= YESTERDAY AND 
+    CreatedDate < TODAY AND 
+    Email_Consent__c = 'Yes' AND 
+    Prospect__r.Sub_Source__c != 'Rendham' AND 
+    Prospect__r.Sub_Source__c != 'Verocover' AND 
+    Prospect__r.PersonLeadSource !='Website' AND 
+    Prospect__r.PersonLeadSource != 'WINR' AND 
+    Prospect__r.Sync_To_marketing_Cloud__pc = TRUE AND 
+    Prospect__r.Contact_by_email__c = 'Yes' AND 
+    Prospect__r.Type != 'Customer'
