@@ -1,6 +1,9 @@
 Assign DevHub org
     sfdx force:auth:web:login -d -a DevHub
 
+Assign a Default Org
+    sfdx force:auth:web:login -a codeOrg -s
+
 Assign a sandbox org
     sfdx force:auth:web:login -r https://test.salesforce.com -a <FullSandbox>
 
