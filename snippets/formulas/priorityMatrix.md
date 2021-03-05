@@ -43,3 +43,13 @@ IF({!typeCase} = 'SOS',
             'Emergency', 'Must Have',
             '')
 )
+
+
+
+CASE (RISK_FACTOR__C,
+    1, 'LOW',
+    2, 'LOW',
+    3, 'LOW',
+    4, 'MEDIUM',
+    5, 'MEDIUM....
+)

@@ -1,0 +1,36 @@
+%%[
+    /*
+    Testing getting Salesforce data via AMPScript
+    */
+
+    var @relatedQuotes
+    
+    set @relatedQuotes = RetrieveSalesforceObjects(
+        "Related_Quote__c",
+        "Quote_Line__c",
+        "Prospect_Activity__c", "=", Prospect_Activity__c:Id 
+    )
+
+
+    var @relatedQuote, @quoteLineId
+
+    set @relatedQuote = Row(@relatedQuotes,1)
+    set @quoteLineId = Field(@relatedQuote,"Quote_Line__c")
+
+    var @quoteLines
+
+    set @quoteLines = RetrieveSalesforceObjects(
+        "Quote_Line__c",
+        "Cover__c, Premium__c",
+        "Id", "=", @quoteLineId
+    )
+
+    var @quoteLine, @cover, @premium
+    set @quoteLine = Row(@quoteLines,1)
+    set @cover = Field(@quoteLine,"Cover__c")
+    set @premium = Field(@quoteLine, "Premium__c")
+    
+
+]%%
+
+    

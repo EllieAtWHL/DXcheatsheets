@@ -1,0 +1,48 @@
+%%[/*Testing getting quote info using AMPScript*/ 
+
+    Var @name, @dob, @premium, @cover, @coverType, @quoteDate, @expiryDate, @relatedQuotes, @relatedQuote, @quoteLineId, @quoteLines, @quoteLine 
+
+    Set @relatedQuotes = LookupRows("RelatedQuoteTest","Prospect_Activity__c",Id) 
+    Set @relatedQuote = Row(@relatedQuotes,1) 
+    Set @quoteLineId = Field(@relatedQuote,"Quote_Line__c") 
+    Set @quoteLines = LookupRows("QuoteLineTest","Id",@quoteLineId) 
+    Set @quoteLine = Row(@quoteLines,1) 
+    Set @name = Field(@quoteLine,"Name") 
+    Set @dob = Field(@quoteLine,"Date of Birth") 
+    Set @premium = Field(@quoteLine,"Premium") 
+    Set @cover = Field(@quoteLine,"Cover") 
+    Set @coverType = Field(@quoteLine,"Cover Type") 
+    Set @quoteDate = Field(@quoteLine,"Quote Date") 
+    Set @expiryDate = DateAdd(@quoteDate, 30, "D") /*DateAdd(@today, 1, "D")*/ 
+
+]%%
+
+<h3 style="">
+    <span style="font-family:Tahoma,Geneva,sans-serif;">
+        <span style="color:#3498db;">
+            %%= v(@Name) =%%
+        </span>
+    </span>
+</h3>
+<span style="font-family:Tahoma,Geneva,sans-serif;">
+    <span style="font-size:12px;">
+        DOB: %%= v(@dob) =%%
+    </span>
+    <br>
+    <br>
+    <span style="color:#3498db;">
+        Your quote is &pound;%%= v(@premium) =%% per month for &pound;%%= v(@cover) =%%
+    </span>
+</span>
+<hr>
+    <span style="font-family:Tahoma,Geneva,sans-serif;">
+        <span style="font-size:10px;">
+            The Plan you have chosen:
+            <br>
+            A %%= v(@coverType) =%% Cover Plan
+        </span>
+    <br>
+    <span style="font-size:10px;">
+        This quote is valid until %%= v(@expiryDate) =%%
+    </span>
+</span>

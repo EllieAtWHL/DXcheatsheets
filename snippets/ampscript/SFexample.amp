@@ -1,0 +1,34 @@
+%%[
+
+var @subscriberRows
+
+set @subscriberRows = RetrieveSalesforceObjects(
+   "Contact",
+   "FirstName,LastName,Email",
+   "Id", "=", _subscriberKey )
+
+if RowCount(@subscriberRows) == 1 then /* there should only be one row */
+  var @subscriberRow, @firstName, @lastName, @email
+  set @subscriberRow = Row(@subscriberRows, 1)
+  set @firstName = Field(@subscriberRow, "FirstName")
+  set @lastName = Field(@subscriberRow, "LastName")
+  set @email = Field(@subscriberRow, "Email")
+endif
+
+]%%
+<!DOCTYPE html>
+<html>
+   <body>
+      <h2>Your Details</h2>
+
+      %%[ if RowCount(@subscriberRows) == 1 then ]%%
+      <ul>
+         <li><strong>First Name:</strong> %%=v(@firstName)=%%</li>
+         <li><strong>Last Name:</strong> %%=v(@lastName)=%%</li>
+         <li><strong>Email:</strong> %%=v(@email)=%%</li>
+      </ul>
+      %%[ else ]%%
+      <p>You are not registered.</p>
+      %%[ endif ]%%
+   </body>
+</html>
